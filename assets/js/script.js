@@ -123,6 +123,15 @@ for (var i = 0; i < tasks.length; i++) {
   var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
+  // Gets task items from localStorage
+  // Converts tasks from the string format back into an array of objects
+  // Iterates through a tasks array and creates task elements on the page from it
+
+  var loadTasks = function() {
+    localStorage.getItem("tasks", JSON.stringify(tasks));
+    console.log(tasks);
+
+  }
 };
 
   alert("Task Updated!");
@@ -149,7 +158,7 @@ var taskButtonHandler = function(event) {
 };
 
 var taskStatusChangeHandler = function(event) {
-  console.log(event.target.value);
+  
 
   // find task list item based on event.target's data-task-id attribute
   var taskId = event.target.getAttribute("data-task-id");
@@ -238,3 +247,5 @@ pageContentEl.addEventListener("click", taskButtonHandler);
 
 // for changing the status
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+
+loadTasks();
